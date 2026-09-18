@@ -1,0 +1,403 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+  background-image: url("azhan-os.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+.top-bar {
+  height: 42px;
+  background: rgba(20, 20, 20, 0.78);
+  color: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 16px;
+  position: relative;
+  z-index: 1000;
+}
+
+.os-name {
+  font-size: 17px;
+  font-weight: bold;
+}
+
+.top-right {
+  display: flex;
+  gap: 18px;
+  font-size: 14px;
+}
+
+.desktop {
+  position: relative;
+  height: calc(100vh - 42px);
+
+  padding: 12px;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 85px);
+  grid-auto-rows: 100px;
+  align-content: start;
+  gap: 4px;
+}
+
+.app-icon {
+  width: 85px;
+  height: 92px;
+
+  padding: 8px;
+
+  color: white;
+  text-align: center;
+
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.app-icon:hover {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.app-icon.selected {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.icon {
+  font-size: 32px;
+  margin-bottom: 4px;
+}
+
+.app-icon span {
+  font-size: 13px;
+}
+
+.app-icon:hover {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.app-icon.selected {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.icon {
+  font-size: 32px;
+  margin-bottom: 4px;
+}
+
+.app-icon span {
+  font-size: 13px;
+}
+
+
+/* windows */
+
+.window {
+  display: none;
+  position: absolute;
+
+  top: 90px;
+  left: 220px;
+
+  width: 440px;
+  min-height: 220px;
+
+  background: rgba(247, 247, 247, 0.97);
+  border: 1px solid #333;
+
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
+
+  color: #222;
+}
+
+.welcome {
+  display: block;
+}
+
+.window-header {
+  height: 36px;
+  background: #202020;
+  color: white;
+
+  padding: 0 10px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  cursor: move;
+  user-select: none;
+}
+
+.window-header button {
+  border: 0;
+  background: transparent;
+  color: white;
+  font-size: 21px;
+  cursor: pointer;
+}
+
+.window-header button:hover {
+  color: #ff6666;
+}
+
+.window-content {
+  padding: 18px;
+  max-height: 70vh;
+  overflow-y: auto;
+}
+
+.window-content h1 {
+  margin-top: 0;
+  font-size: 25px;
+}
+
+.window-content h2 {
+  margin-top: 0;
+}
+
+.welcome-content img {
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+  margin-bottom: 8px;
+}
+
+.small-text {
+  color: #777;
+  font-size: 13px;
+}
+
+
+/* music */
+
+audio {
+  width: 100%;
+  margin-top: 15px;
+}
+
+#musicFile {
+  max-width: 100%;
+}
+
+
+/* file explorer */
+
+.file {
+  background: #e9e9e9;
+  padding: 12px;
+  margin-bottom: 8px;
+  border-radius: 4px;
+}
+
+.file:hover {
+  background: #dedede;
+}
+
+
+/* gallery */
+
+.gallery-window {
+  width: 500px;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.gallery img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  border: 1px solid #aaa;
+}
+
+
+/* calculator */
+
+.calculator-window {
+  width: 300px;
+}
+
+.calculator-screen {
+  width: 100%;
+  height: 50px;
+
+  padding: 8px;
+  margin-bottom: 10px;
+
+  border: 1px solid #aaa;
+
+  font-size: 23px;
+  text-align: right;
+}
+
+.calculator {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+}
+
+.calculator button {
+  height: 45px;
+
+  border: 1px solid #aaa;
+  background: #eee;
+
+  font-size: 17px;
+  cursor: pointer;
+}
+
+.calculator button:hover {
+  background: #ddd;
+}
+
+.calculator .equals {
+  grid-column: span 2;
+}
+
+
+/* contacts */
+
+.contact {
+  display: block;
+
+  text-decoration: none;
+  color: #222;
+
+  background: #e9e9e9;
+
+  padding: 13px;
+  margin-bottom: 9px;
+
+  border-radius: 4px;
+}
+
+.contact:hover {
+  background: #ddd;
+}
+
+.contact strong {
+  display: block;
+  margin-bottom: 4px;
+}
+
+.contact span {
+  color: #666;
+  font-size: 13px;
+}
+
+
+/* timer */
+
+.timer-window {
+  width: 320px;
+}
+
+.timer-display {
+  text-align: center;
+  font-size: 48px;
+  margin: 20px 0;
+}
+
+#timerInput {
+  width: 100%;
+  padding: 10px;
+
+  font-size: 16px;
+
+  border: 1px solid #aaa;
+}
+
+.timer-buttons {
+  display: flex;
+  gap: 7px;
+  margin-top: 10px;
+}
+
+.timer-buttons button {
+  padding: 9px 15px;
+
+  border: 1px solid #999;
+  background: #eee;
+
+  cursor: pointer;
+}
+
+.timer-buttons button:hover {
+  background: #ddd;
+}
+
+
+/* notes */
+
+.notes-window {
+  width: 500px;
+}
+
+#notesText {
+  width: 100%;
+  height: 220px;
+
+  padding: 10px;
+
+  resize: none;
+
+  border: 1px solid #aaa;
+
+  font-family: Arial, sans-serif;
+  font-size: 15px;
+}
+
+.save-button {
+  margin-top: 8px;
+
+  padding: 9px 15px;
+
+  border: 1px solid #999;
+  background: #eee;
+
+  cursor: pointer;
+}
+
+.save-button:hover {
+  background: #ddd;
+}
+
+#notesStatus {
+  margin-left: 10px;
+  color: #555;
+  font-size: 13px;
+}
+
+
+/* small screens */
+
+@media (max-width: 700px) {
+
+  .window {
+    width: 90vw;
+    left: 5vw !important;
+    top: 70px !important;
+  }
+
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .top-right {
+    gap: 8px;
+    font-size: 12px;
+  }
+}

@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Azhan-OS</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="top-bar">
+    <div class="os-name">Azhan-OS</div>
+
+    <div class="top-right">
+      <span id="date"></span>
+      <span id="time"></span>
+    </div>
+  </div>
+
+
+  <div class="desktop">
+
+    <div class="app-icon" onclick="openApp('welcome', this)">
+      <div class="icon">🏠</div>
+      <span>Welcome</span>
+    </div>
+
+    <div class="app-icon" onclick="openApp('music', this)">
+      <div class="icon">🎵</div>
+      <span>Music</span>
+    </div>
+
+    <div class="app-icon" onclick="openApp('files', this)">
+      <div class="icon">📁</div>
+      <span>Files</span>
+    </div>
+
+    <div class="app-icon" onclick="openApp('gallery', this)">
+      <div class="icon">🖼️</div>
+      <span>Gallery</span>
+    </div>
+
+    <div class="app-icon" onclick="openApp('calculator', this)">
+      <div class="icon">🧮</div>
+      <span>Calculator</span>
+    </div>
+
+    <div class="app-icon" onclick="openApp('contacts', this)">
+      <div class="icon">👤</div>
+      <span>Contacts</span>
+    </div>
+
+    <div class="app-icon" onclick="openApp('timer', this)">
+      <div class="icon">⏱️</div>
+      <span>Timer</span>
+    </div>
+
+    <div class="app-icon" onclick="openApp('notes', this)">
+      <div class="icon">📝</div>
+      <span>Notes</span>
+    </div>
+
+
+    <div class="window welcome" id="welcome">
+
+      <div class="window-header">
+        <span>Welcome</span>
+        <button onclick="closeWindow('welcome')">×</button>
+      </div>
+
+      <div class="window-content welcome-content">
+
+        <img src="azhan-os.jpg" alt="Azhan-OS">
+
+        <h1>Welcome to Azhan-OS</h1>
+
+        <p>
+          This is my little web-based operating system.
+        </p>
+
+        <p>
+          It is a place for experiments, projects, notes and random things
+          I want to keep around.
+        </p>
+
+        <p class="small-text">
+          Built with HTML, CSS and JavaScript.
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <div class="window" id="music">
+
+      <div class="window-header">
+        <span>Music Player</span>
+        <button onclick="closeWindow('music')">×</button>
+      </div>
+
+      <div class="window-content">
+
+        <h2>Music Player</h2>
+
+        <p id="songName">No song selected</p>
+
+        <input type="file" id="musicFile" accept="audio/*">
+
+        <audio id="audioPlayer" controls></audio>
+
+        <p id="songStatus">Choose an audio file to play.</p>
+
+      </div>
+
+    </div>
+
+
+    <div class="window" id="files">
+
+      <div class="window-header">
+        <span>File Explorer</span>
+        <button onclick="closeWindow('files')">×</button>
+      </div>
+
+      <div class="window-content">
+
+        <h2>My Files</h2>
+
+        <div class="file">
+          📄 index.html
+        </div>
+
+        <div class="file">
+          🎨 style.css
+        </div>
+
+        <div class="file">
+          ⚙️ script.js
+        </div>
+
+        <div class="file">
+          🖼️ azhan-os.jpg
+        </div>
+
+        <div class="file">
+          📁 gallery/
+        </div>
+
+        <p class="small-text">
+          These are the files that make Azhan-OS work.
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <div class="window gallery-window" id="gallery">
+
+      <div class="window-header">
+        <span>Gallery</span>
+        <button onclick="closeWindow('gallery')">×</button>
+      </div>
+
+      <div class="window-content">
+
+        <h2>Gallery</h2>
+
+        <div class="gallery">
+
+          <img src="azhan-os.jpg" alt="Gallery image">
+
+          <img src="gallery/image1.jpg" alt="Gallery image"
+               onerror="this.style.display='none'">
+
+          <img src="gallery/image2.jpg" alt="Gallery image"
+               onerror="this.style.display='none'">
+
+          <img src="gallery/image3.jpg" alt="Gallery image"
+               onerror="this.style.display='none'">
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="window calculator-window" id="calculator">
+
+      <div class="window-header">
+        <span>Calculator</span>
+        <button onclick="closeWindow('calculator')">×</button>
+      </div>
+
+      <div class="window-content">
+
+        <input class="calculator-screen" id="calc" type="text" readonly>
+
+        <div class="calculator">
+
+          <button onclick="clearCalc()">C</button>
+          <button onclick="addCalc('(')">(</button>
+          <button onclick="addCalc(')')">)</button>
+          <button onclick="addCalc('/')">÷</button>
+
+          <button onclick="addCalc('7')">7</button>
+          <button onclick="addCalc('8')">8</button>
+          <button onclick="addCalc('9')">9</button>
+          <button onclick="addCalc('*')">×</button>
+
+          <button onclick="addCalc('4')">4</button>
+          <button onclick="addCalc('5')">5</button>
+          <button onclick="addCalc('6')">6</button>
+          <button onclick="addCalc('-')">−</button>
+
+          <button onclick="addCalc('1')">1</button>
+          <button onclick="addCalc('2')">2</button>
+          <button onclick="addCalc('3')">3</button>
+          <button onclick="addCalc('+')">+</button>
+
+          <button onclick="addCalc('0')">0</button>
+          <button onclick="addCalc('.')">.</button>
+          <button class="equals" onclick="calculate()">=</button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="window" id="contacts">
+
+  <div class="window-header">
+    <span>Contacts</span>
+    <button onclick="closeWindow('contacts')">×</button>
+  </div>
+
+  <div class="window-content">
+
+    <h2>My GitHub</h2>
+
+    <a
+      class="contact"
+      href="https://github.com/azhan-builds"
+      target="_blank"
+    >
+      <strong>GitHub</strong>
+      <span>github.com/azhan-builds</span>
+    </a>
+
+  </div>
+
+</div>
+
+
+    <div class="window timer-window" id="timer">
+
+      <div class="window-header">
+        <span>Timer</span>
+        <button onclick="closeWindow('timer')">×</button>
+      </div>
+
+      <div class="window-content">
+
+        <h2>Timer</h2>
+
+        <div class="timer-display" id="timerDisplay">
+          01:00
+        </div>
+
+        <input
+          type="number"
+          id="timerInput"
+          value="60"
+          min="1"
+          placeholder="Seconds"
+        >
+
+        <div class="timer-buttons">
+
+          <button onclick="startTimer()">Start</button>
+
+          <button onclick="pauseTimer()">Pause</button>
+
+          <button onclick="resetTimer()">Reset</button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="window notes-window" id="notes">
+
+      <div class="window-header">
+        <span>Notes</span>
+        <button onclick="closeWindow('notes')">×</button>
+      </div>
+
+      <div class="window-content">
+
+        <h2>Notes</h2>
+
+        <textarea
+          id="notesText"
+          placeholder="Write something here..."
+        ></textarea>
+
+        <button class="save-button" onclick="saveNotes()">
+          Save
+        </button>
+
+        <span id="notesStatus"></span>
+
+      </div>
+
+    </div>
+
+
+  </div>
+
+
+  <script src="script.js"></script>
+
+</body>
+</html>
